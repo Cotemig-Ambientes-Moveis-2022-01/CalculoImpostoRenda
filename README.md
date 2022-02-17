@@ -19,8 +19,8 @@ btnCalcular.setOnClickListener {
 ## Formatar um valor com uma String no arquivo string.xml (abaixo)
 
 ```kotlin
-var resultTax = findViewById<TextView>(R.id.result_tax)
-resultTax.text = resources.getString(R.string.result_tax, tax)
+var imposto = findViewById<TextView>(R.id.imposto)
+imposto.text = resources.getString(R.string.result_tax, tax)
 ```
 
 ## Formatar utilizando NumberFormat
@@ -28,8 +28,8 @@ resultTax.text = resources.getString(R.string.result_tax, tax)
 ```kotlin
 var f = NumberFormat.getCurrencyInstance()
 
-var resultSalary = findViewById<TextView>(R.id.result_salary)
-resultSalary.text = resources.getString(R.string.result_salliquid, f.format(salLiquid))
+var salarioLiquido = findViewById<TextView>(R.id.salarioLiquido)
+salarioLiquido.text = resources.getString(R.string.result_salliquid, f.format(salLiquid))
 ```
 
 ## Arquivo String
@@ -37,9 +37,11 @@ resultSalary.text = resources.getString(R.string.result_salliquid, f.format(salL
 ```xml
 <resources>
     <string name="app_name">Calcula Salário Líquido</string>
-    <string name="calculator_hintsalary">Salário</string>
-    <string name="calculator_salary">Entre com o seu salário:</string>
-    <string name="calculator_calc">Calcular</string>
+    <string name="salario">Salário</string>
+    <string name="preencha_salario">Preencha o salário</string>
+    <string name="calcular">Calcular</string>
+    <string name="salario_liquido">Salário Líquido</string>
+    <string name="imposto">Imposto</string>
     <string name="result_salliquid">O salário líquido é %s</string>
     <string name="result_tax">O imposto é R$ %.2f</string>
     <string name="no_tax">Imposto: <b>isento</b></string>
@@ -71,18 +73,18 @@ fun calcTax(salary: Double) {
 
     var f = NumberFormat.getCurrencyInstance()
 
-    var resultSalary = findViewById<TextView>(R.id.result_salary)
-    resultSalary.text = resources.getString(R.string.result_salliquid, f.format(salLiquid))
+    var salarioLiquido = findViewById<TextView>(R.id.salarioLiquido)
+    salarioLiquido.text = resources.getString(R.string.result_salliquid, f.format(salLiquid))
 
-    var resultTax = findViewById<TextView>(R.id.result_tax)
+    var imposto = findViewById<TextView>(R.id.imposto)
     if (tax != 0.0) {
-        resultTax.text = resources.getString(R.string.result_tax, tax)
+        imposto.text = resources.getString(R.string.result_tax, tax)
     } else {
-        resultTax.text = resources.getString(R.string.no_tax)
+        imposto.text = resources.getString(R.string.no_tax)
     }
 
-    var salary = findViewById<EditText>(R.id.salary)
-    salary.setText("")
+    var salario = findViewById<EditText>(R.id.salario)
+    salario.setText("")
 
 }
 ```
