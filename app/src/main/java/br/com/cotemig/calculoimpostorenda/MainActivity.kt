@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import java.text.DecimalFormat
+import java.text.NumberFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,9 +20,33 @@ class MainActivity : AppCompatActivity() {
         var imposto = findViewById<TextView>(R.id.imposto)
 
         btnCalcular.setOnClickListener {
-            salarioLiquido.text = salario.text
+
+            var s = salario.text.toString().toDouble()
+            var tax: Double
+
+            if (s <= 1903.98) {
+                tax = 0.0
+            } else if (s <= 2826.65) {
+                tax = (s * 0.075) - 142.8
+            } else if (s <= 3751.05) {
+                tax = (s * 0.15) - 354.8
+            } else if (s <= 4664.68) {
+                tax = (s * 0.225) - 636.13
+            } else {
+                tax = (s * 0.275) - 869.36
+            }
+
+            s -= tax
+
+            var d = NumberFormat.
+                getCurrencyInstance(Locale.forLanguageTag("pt-br"))
+
+            salarioLiquido.text = d.format(s)
+            imposto.text = d.format(tax)
+
         }
 
 
     }
+
 }
