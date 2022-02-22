@@ -47,8 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="2000"/>
+        android:fontFamily="@font/roboto_bold"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -65,8 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="100"/>
+        android:fontFamily="@font/roboto_bold"/>
 
 
 </LinearLayout>

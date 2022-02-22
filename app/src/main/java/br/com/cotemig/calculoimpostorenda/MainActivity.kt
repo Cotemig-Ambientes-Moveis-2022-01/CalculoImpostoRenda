@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
 
